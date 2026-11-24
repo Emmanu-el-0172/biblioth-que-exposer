@@ -46,15 +46,23 @@
         .btn:hover{
             background: #ffc107;
         }
+        .sombre{
+            background-color: #272727;
+            color:green;
+        }
     </style>
 </head>
 <body>
-
+    <button id="theme">Changer de thème</button>
     <h1>📚 Bibliothèque des Exposés</h1>
 
     <div class="pdf-container" id="pdfList"></div>
 
     <script>
+        const boutonTheme = document.getElementById("theme");
+        boutonTheme.addEventListener("click", function(){
+            document.body.classList.toggle("sombre");
+        });
         const stokExposer = [
             {
                 titre: "Changement Climatique",
