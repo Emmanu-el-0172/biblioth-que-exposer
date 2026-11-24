@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque PDF</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1{
+            text-align: center;
+            color: #0056b3;
+        }
+
+        .pdf-container{
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .pdf-card{
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn{
+            background: #ffd700;
+            color: #000;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn:hover{
+            background: #ffc107;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📚 Bibliothèque des Exposés</h1>
+
+    <div class="pdf-container" id="pdfList"></div>
+
+    <script>
+        const stokExposer = [
+            {
+                titre: "Changement Climatique",
+                auteur: "John Doe",
+                fichier: "pdf/changement_climatique.pdf"
+            },
+            {
+                titre: "Intégration Économique UEMOA",
+                auteur: "Jane Smith",
+                fichier: "pdf/uemoa.pdf"
+            },
+            {
+                titre: "Analyses de Malthus et Marx",
+                auteur: "Marie Curie",
+                fichier: "pdf/malthus_marx.pdf"
+            }
+        ];
+
+        const liste = document.getElementById("pdfList");
+
+        stokExposer.forEach(exposer => {
+            liste.innerHTML += `
+                <div class="pdf-card">
+                    <h3>${exposer.titre}</h3>
+                    <p>Auteur: ${exposer.auteur}</p>
+                    <a href="${exposer.fichier}" download class="btn">
+                        Télécharger
+                    </a>
+                </div>
+            `;
+        });
+    </script>
+
+</body>
+</html>
